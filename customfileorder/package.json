@@ -1,0 +1,56 @@
+{
+  "name": "custom-file-order",
+  "displayName": "Custom File Order",
+  "description": "A Visual Studio Code extension that allows you to manually reorder files in a custom tree view using drag-and-drop",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["*"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "customFileOrder.activate", "title": "Activate Custom File Order" },
+      { "command": "customFileOrder.refresh", "title": "Refresh", "icon": "$(refresh)" },
+      { "command": "customFileOrder.save", "title": "Save Order" },
+      { "command": "customFileOrder.discard", "title": "Discard Changes" }
+    ],
+    "keybindings": [
+      {
+        "command": "customFileOrder.activate",
+        "key": "ctrl+alt+o",
+        "mac": "cmd+alt+o"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "customFileOrder",
+          "name": "Custom File Order",
+          "when": "customFileOrder.active"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "customFileOrder.refresh",
+          "when": "view == customFileOrder",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
