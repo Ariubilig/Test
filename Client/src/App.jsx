@@ -1,5 +1,3 @@
-// import './App.css';
-
 import { useState, useRef } from "react";
 import { Routes, Route } from 'react-router-dom';
 
@@ -13,7 +11,7 @@ import NotFound from './pages/NotFound/NotFound.jsx';
 
 import Preloader from './components/UX/Preloader/Preloader';
 import FadeDownUp from './components/UX//PageTransiton/FadeDownUp.jsx';
-import { useScrollSmoother } from './components/Hooks/useScrollSmoother+load';
+import { useScrollSmoother } from './components/hooks/useScrollSmootherLoad.jsx';
 
 
 function App() {
@@ -31,7 +29,7 @@ function App() {
       ) : (
         <>
           {/* <FadeDownUp> */}
-              <Navbar />
+          <Navbar />
 
           <div id="smooth-wrapper" ref={smoothWrapperRef}>
             <div id="smooth-content">

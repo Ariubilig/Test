@@ -15,7 +15,6 @@
   
   --divider: hsla(0, 0%, 40%);
 }
-
 body {
   background: var(--color-bg);
   color: var(--textDefault);
@@ -27,12 +26,11 @@ body {
 
   position: relative;
 }
-
 body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('Noise.jpg'); /* your noise image */
+  background-image: url('Noise.jpg');
   background-repeat: repeat;
   opacity: 0.15; /* matches Figma’s 15% */
   pointer-events: none; /* so it’s not interactive */
