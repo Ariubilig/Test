@@ -31,12 +31,12 @@ function App() {
       ) : (
         <>
           {/* <FadeDownUp> */}
+              <Navbar />
 
           <div id="smooth-wrapper" ref={smoothWrapperRef}>
             <div id="smooth-content">
 
 
-              <Navbar />
 
               <Routes>
                 <Route path="/" element={<Home />} />

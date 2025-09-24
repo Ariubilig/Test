@@ -1,68 +1,70 @@
 .Home {
-    /* padding-top: 185px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px; */
-    width: 100%;
     box-sizing: border-box;
     font-family: Handjet;
+    padding-top: 350px;
 }
-.Home-columns {
+.first-columns {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 100px;
-    border: 1px solid black;
-    padding-top: 219px;
+    /* border: 1px solid black; */
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 235px;
+    min-height: calc(100vh - 350px);
+    max-height: calc(100vh - 350px);
 }
-.Home-left {
+.first-left {
     flex: 1;
     display: flex;
     align-items: flex-start;
 }
-.Home-left h1 {
-    font-weight: 400;
+.first-left h1 {
     color: #262626;
     font-size: 96px;
-    line-height: 1;
-    letter-spacing: 0;
+    font-weight: 400;
     text-transform: uppercase;
     margin: 0 0 24px 0;
     text-align: left;
+    line-height: 90%;
+    letter-spacing: -3px;
+
 }
-.Home-right h1 {
-    font-weight: 400;
+.first-right h1 {
     color: #262626;
     font-size: 128px;
-    line-height: 70%;
+    font-weight: 400;
     text-transform: uppercase;
-    margin: 0 0 24px 0;
     text-align: left;
+    line-height: 90%;
+    letter-spacing: -3px;
+    margin: 0;
+
 }
 .Home-right h1:last-child {
     margin-bottom: 0;
 }
 .second {
-    max-height: 100vh;
-    border: 1px solid black;
+    min-height: 100vh;
+    /* border: 1px solid black; */
     margin-left: 50px;
     margin-right: 50px;
 }
 .second h1 {
     font-size: 96px;
     font-weight: 400;
-
+    margin: 0;
 }
 .third {
-    max-height: 100vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: 50px;
     margin-right: 50px;
 }
 .third h1 {
     font-size: 96px;
     font-weight: 400;
+    margin: 0;
+}
+.third-right {
+    display: flex;
+    justify-content: flex-end;
 }

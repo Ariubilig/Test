@@ -24,7 +24,20 @@ body {
   padding: 0;
   box-sizing: border-box;
   line-height: 1;
+
+  position: relative;
 }
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('Noise.jpg'); /* your noise image */
+  background-repeat: repeat;
+  opacity: 0.15; /* matches Figma’s 15% */
+  pointer-events: none; /* so it’s not interactive */
+}
+
 
 ::-webkit-scrollbar {
   width: 6px;
