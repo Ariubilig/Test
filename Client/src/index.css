@@ -30,7 +30,8 @@ body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('Noise.jpg');
+  background-image: url('/Client/public/Noise.jpg');
+  background-image: url('/Noise.jpg');
   background-repeat: repeat;
   opacity: 0.15; /* matches Figma’s 15% */
   pointer-events: none; /* so it’s not interactive */

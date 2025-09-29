@@ -10,17 +10,17 @@ import Merch from './pages/Merch/Merch.jsx';
 import NotFound from './pages/NotFound/NotFound.jsx';
 
 import Preloader from './components/UX/Preloader/Preloader';
-import FadeDownUp from './components/UX//PageTransiton/FadeDownUp.jsx';
 import { useScrollSmoother } from './components/hooks/useScrollSmootherLoad.jsx';
+import FadeDownUp from './components/UX//PageTransiton/FadeDownUp.jsx';
 
 
 function App() {
 
-
+  /////////////////////////////////////////////////////////////////
   const [PreloaderDone, setPreloaderDone] = useState(false);
   const smoothWrapperRef = useRef(null);
   useScrollSmoother(smoothWrapperRef, PreloaderDone);
-
+  /////////////////////////////////////////////////////////////////
   return (
     <>
 
@@ -44,12 +44,12 @@ function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
               
-              {/* <Footer /> */}
 
 
             </div>
           </div>
 
+          {/* <Footer /> */}
           {/* </FadeDownUp> */}
         </>
       )}
