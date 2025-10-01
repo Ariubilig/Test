@@ -3,7 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './FadeDownUp.css';
 
+
 const FadeDownUp = ({ children, transitionImage, routeNames }) => {
+
   const location = useLocation();
   const overlayRef = useRef(null);
   const contentRef = useRef(null);

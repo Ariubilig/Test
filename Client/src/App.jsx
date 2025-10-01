@@ -28,7 +28,7 @@ function App() {
         <Preloader onFinish={() => setPreloaderDone(true)} />
       ) : (
         <>
-          {/* <FadeDownUp> */}
+          <FadeDownUp>
           <Navbar />
 
           <div id="smooth-wrapper" ref={smoothWrapperRef}>
@@ -50,7 +50,7 @@ function App() {
           </div>
 
           {/* <Footer /> */}
-          {/* </FadeDownUp> */}
+          </FadeDownUp>
         </>
       )}
 
