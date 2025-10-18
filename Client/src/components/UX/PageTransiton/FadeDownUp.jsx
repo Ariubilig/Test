@@ -11,14 +11,18 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
   const contentRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionKey, setTransitionKey] = useState(
+    () => location.pathname + location.search + location.hash
+  );
   
   // Custom easing from the original code
   const slideEase = "cubic-bezier(0.65,0.05,0.36,1)";
   
   useEffect(() => {
     // Only run transition if location actually changed (pathname or search)
-    if (location.pathname !== displayLocation.pathname || 
-        location.search !== displayLocation.search) {
+    // Compare full key to catch hash changes and ensure detection across routes
+    const nextKey = location.pathname + location.search + location.hash;
+    if (nextKey !== transitionKey) {
       setIsTransitioning(true);
       
       // Transition out (fade down)
@@ -26,6 +30,7 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
         onComplete: () => {
           // Update the displayed location ONLY after overlay fully covers
           setDisplayLocation(location);
+          setTransitionKey(nextKey);
           
           // Shorter delay since no text to read (reduced from 400ms to 200ms)
           setTimeout(() => {
@@ -70,7 +75,7 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
         ease: slideEase
       }, "-=0.1");
     }
-  }, [location.pathname, location.search, displayLocation.pathname, displayLocation.search]);
+  }, [location.pathname, location.search, location.hash, transitionKey]);
   
   // Initialize overlay position on mount
   useEffect(() => {
@@ -102,7 +107,7 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
         }}
       >
         {/* Render children with the current display location */}
-        <div key={displayLocation.pathname}>
+        <div key={displayLocation.pathname + displayLocation.search + displayLocation.hash}>
           {children}
         </div>
       </div>

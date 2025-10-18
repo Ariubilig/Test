@@ -12,13 +12,16 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 9999;
+  /* Ensure overlay is above navbar and content */
+  z-index: 10001;
   pointer-events: none;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Fallback background when no transition image is provided */
+  background-color: hsl(0, 0%, 15%);
 }
 .page-transition-content {
   width: 100%;
