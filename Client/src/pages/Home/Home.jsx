@@ -1,8 +1,12 @@
 import './Home.css';
 import Up from '../../components/UX/SplitText/SplitTextUp';
 
+
 function Home() {
+
+
     return(
+    <>
         <div className='Home'>
             <div className='first-columns'>
                 <div className='first-left'>
@@ -24,7 +28,7 @@ function Home() {
             <div className='second'>
                 <div className='second-left'>
 
-                    <Up>
+                    <Up duration = {1.25}>
                     <h1>WE DO MUSIC</h1>
                     </Up>
 
@@ -39,14 +43,16 @@ function Home() {
                 </div>
                 <div className='third-right'>
 
-                    <Up>
+                    <Up duration = {1.25}>
                     <h1>AND CLOTHES</h1>
                     </Up>
 
                 </div>
             </div>
         </div>
+    </>
     )
 }
+
 
 export default Home;

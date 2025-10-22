@@ -4,6 +4,8 @@ import "./Preloader.css"
 
 
 const Preloader = ({ onFinish }) => {
+
+
   const [shouldShow, setShouldShow] = useState(true);
 
   useEffect(() => {
@@ -62,5 +64,6 @@ const Preloader = ({ onFinish }) => {
     </div>
   );
 };
+
 
 export default Preloader

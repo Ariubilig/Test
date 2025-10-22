@@ -39,17 +39,17 @@ export default function Up({
   const splitRefs = useRef([]);
   const lines = useRef([]);
 
-  const waitForFonts = async (fonts = []) => {
-    try {
-      await document.fonts.ready;
-      if (fonts.length > 0) {
-        await Promise.all(fonts.map(f => document.fonts.check(`16px ${f}`)));
-      }
-      await new Promise(res => setTimeout(res, 50));
-    } catch (err) {
-      console.warn("Font loading check failed:", err);
-    }
-  };
+  // const waitForFonts = async (fonts = []) => {
+  //   try {
+  //     await document.fonts.ready;
+  //     if (fonts.length > 0) {
+  //       await Promise.all(fonts.map(f => document.fonts.check(`16px ${f}`)));
+  //     }
+  //     await new Promise(res => setTimeout(res, 50));
+  //   } catch (err) {
+  //     console.warn("Font loading check failed:", err);
+  //   }
+  // };
   
   useGSAP(
       () => {
