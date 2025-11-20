@@ -2,8 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/UI/Navbar/Navbar';
-// import Footer from './components/UI/Footer/Footer';
-
 import Home from './pages/Home/Home.jsx';
 import Music from './pages/Music/Music.jsx';
 import Merch from './pages/Merch/Merch.jsx';
@@ -14,55 +12,52 @@ import FadeDownUp from './components/UX/PageTransiton/FadeDownUp.jsx';
 import { useScrollSmoother } from './components/hooks/useScrollSmootherLoad.jsx';
 import { useFontsReady } from "./components/hooks/useFontsReady.js";
 
-
 function App() {
 
-  //////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////
+  const [preloaderAnimDone, setPreloaderAnimDone] = useState(false);
   const [preloaderDone, setPreloaderDone] = useState(false);
   const smoothWrapperRef = useRef(null);
-  useScrollSmoother(smoothWrapperRef, preloaderDone);
   const fontsReady = useFontsReady();
-  //////////////////////////////////////////////////////////////////
+  useScrollSmoother(smoothWrapperRef, preloaderDone);
+  /////////////////////////////////////////////////////////////////////////
 
-  useEffect(() => {
-    if (fontsReady) {
+  useEffect(() => { // both animation, fonts done hide preloader
+    if (preloaderAnimDone && fontsReady) {
       setPreloaderDone(true);
     }
-  }, [fontsReady]);
-  
+  }, [preloaderAnimDone, fontsReady]);
+
 
   return (
     <>
 
-    {!preloaderDone ? (
-      <Preloader onFinish={() => setPreloaderDone(true)} />
-    ) : (
-      <>
+      {!preloaderDone ? (
+        <Preloader onFinish={() => setPreloaderAnimDone(true)} />
+      ) : (
 
-      <FadeDownUp>
+        <FadeDownUp>
 
-        <Navbar />
+          <Navbar />
 
-        <div id="smooth-wrapper" ref={smoothWrapperRef}>
-          <div id="smooth-content">
+          <div id="smooth-wrapper" ref={smoothWrapperRef}>
+            <div id="smooth-content">
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Music" element={<Music />} />
-              <Route path="/Merch" element={<Merch />} />
-              
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Music" element={<Music />} />
+                <Route path="/Merch" element={<Merch />} />
 
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+
+            </div>
           </div>
-        </div>
+          
+        </FadeDownUp>
 
-        {/* <Footer /> */}
-
-      </FadeDownUp>
-
-      </>
-    )}
+      )}
 
     </>
   );
