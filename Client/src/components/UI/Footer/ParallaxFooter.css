@@ -1,0 +1,64 @@
+.parallax-footer {
+  position: relative;
+  height: 250px;
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+.parallax-footer-inner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+  padding: 40px 50px 20px 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-title {
+  font-family: Handjet, sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-social a {
+  font-family: Handjet, sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  text-decoration: none;
+  color: hsl(0, 0%, 60%);
+  transition: color 0.3s ease;
+}
+
+.footer-bottom {
+  border-top: 1px solid hsl(0, 0%, 30%);
+  padding-top: 20px;
+}
+
+.footer-copyright {
+  font-family: Handjet, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: hsl(0, 0%, 50%);
+  text-align: center;
+}
