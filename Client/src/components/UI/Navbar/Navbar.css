@@ -45,3 +45,33 @@
 .links a:hover {
   color: hsl(0, 0%, 0%);
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .Navbar {
+    padding: 20px 16.5px 0px 10px;
+    justify-content: space-between;
+  }
+
+  .h1 {
+    font-size: 48px;
+    letter-spacing: -3px;
+    line-height: normal;
+    margin-right: 0;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .Navbar::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('/Icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

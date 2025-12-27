@@ -68,3 +68,55 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .Home {
+        padding-top: 100px;
+    }
+
+    .first-columns {
+        flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
+        min-height: auto;
+        max-height: none;
+        gap: 30px;
+    }
+
+    .first-left h1 {
+        font-size: 64px;
+        letter-spacing: -3px;
+        line-height: 90%;
+        margin-bottom: 0;
+    }
+
+    .first-right h1 {
+        font-size: 128px;
+        letter-spacing: -3px;
+    }
+
+    .second {
+        margin-left: 10px;
+        margin-right: 10px;
+        min-height: auto;
+        margin-top: 60px;
+    }
+
+    .second h1 {
+        font-size: 64px;
+    }
+
+    .third {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .third h1 {
+        font-size: 64px;
+    }
+
+    .third-right {
+        justify-content: flex-start;
+    }
+}
