@@ -28,6 +28,6 @@ export const useScrollSmoother = (wrapperRef, PreloaderDone) => {
       clearTimeout(timer);
       if (smoother) smoother.kill();
     };
-  }, [PreloaderDone]);
+  }, [PreloaderDone, wrapperRef]);
   
 };
