@@ -1,6 +1,6 @@
-import "./ParallaxFooter.css";
+import "./Footer.css";
 
-export default function ParallaxFooter() {
+export default function Footer() {
   return (
     <div className="parallax-footer">
       <div className="parallax-footer-inner">

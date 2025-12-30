@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/UI/Navbar/Navbar';
-import ParallaxFooter from "./components/UI/Footer/ParallaxFooter.jsx";
+import Footer from "./components/UI/Footer/Footer.jsx";
 import Home from './pages/Home/Home.jsx';
 import Music from './pages/Music/Music.jsx';
 import Merch from './pages/Merch/Merch.jsx';
@@ -53,7 +53,7 @@ function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
 
-              <ParallaxFooter />
+              <Footer />
 
             </div>
           </div>
