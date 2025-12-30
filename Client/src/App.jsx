@@ -33,7 +33,6 @@ function App() {
 
   return (
     <>
-
       {!preloaderDone ? (
         <Preloader onFinish={() => setPreloaderAnimDone(true)} />
       ) : (
@@ -49,7 +48,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/Music" element={<Music />} />
                 <Route path="/Merch" element={<Merch />} />
-
                 <Route path="*" element={<NotFound />} />
               </Routes>
 
@@ -60,7 +58,6 @@ function App() {
         </FadeDownUp>
 
       )}
-
     </>
   );
 }
