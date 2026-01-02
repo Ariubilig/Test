@@ -1,7 +1,11 @@
 import "./Footer.css";
 
-export default function Footer() {
+
+function Footer() {
+
+
   return (
+
     <div className="parallax-footer">
       <div className="parallax-footer-inner">
         <div className="footer-content">
@@ -21,5 +25,9 @@ export default function Footer() {
         </div>
       </div>
     </div>
+    
   )
 }
+
+
+export default Footer;

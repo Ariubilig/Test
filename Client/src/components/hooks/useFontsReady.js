@@ -6,14 +6,12 @@ export function useFontsReady() {
   const [fontsReady, setFontsReady] = useState(false);
 
   useEffect(() => {
-    // already loaded
     if (document.fonts.status === "loaded") {
       setFontsReady(true);
       return;
     }
 
-    // wait for all fonts to finish loading
-    document.fonts.ready.then(() => {
+    document.fonts.ready.then(() => { // waits all fonts finish
       setFontsReady(true);
     });
   }, []);

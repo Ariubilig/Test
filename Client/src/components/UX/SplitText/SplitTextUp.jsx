@@ -6,7 +6,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
+
 export default function Up({ 
+
   children, 
   animateOnScroll = true, 
   delay = 0,
@@ -17,7 +19,10 @@ export default function Up({
   className = "",
   style = {},
   wrapperTag = "div"
+
 }) {
+
+
   const containerRef = useRef(null);
   const splitRefs = useRef([]);
   const lines = useRef([]);
@@ -113,6 +118,7 @@ export default function Up({
     });
   }
 
+  
   const WrapperComponent = wrapperTag; // Multiple children
   return (
     <WrapperComponent 

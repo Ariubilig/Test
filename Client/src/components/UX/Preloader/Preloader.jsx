@@ -63,6 +63,8 @@ const Preloader = ({ onFinish }) => {
       <div className="progress-bar"></div>
     </div>
   );
+
+  
 };
 
 
