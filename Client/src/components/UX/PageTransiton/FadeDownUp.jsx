@@ -4,9 +4,9 @@ import { gsap } from 'gsap';
 import './FadeDownUp.css';
 
 
-const FadeDownUp = ({ children, transitionImage, routeNames }) => {
+const FadeDownUp = ({ children, transitionImage }) => {
 
-
+  
   const location = useLocation();
   const overlayRef = useRef(null);
   const contentRef = useRef(null);
@@ -86,7 +86,6 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
       });
     }
   }, []);
-  
   
   return (
     <div className="page-transition-container">
