@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import './FadeDownUp.css';
 
 
 const FadeDownUp = ({ children, transitionImage, routeNames }) => {
+
 
   const location = useLocation();
   const overlayRef = useRef(null);
@@ -86,6 +87,7 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
     }
   }, []);
   
+  
   return (
     <div className="page-transition-container">
       {/* Transition overlay with image */}
@@ -114,5 +116,6 @@ const FadeDownUp = ({ children, transitionImage, routeNames }) => {
     </div>
   );
 };
+
 
 export default FadeDownUp;

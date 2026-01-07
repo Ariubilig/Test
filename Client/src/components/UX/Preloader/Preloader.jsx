@@ -1,53 +1,71 @@
-import './Preloader.css';
-import React from 'react';
-
-const loadingNames = ["RARI", "EMURACS", "SITAN", "SANDAN", "BELLATTIX", "NOEL"];
+import { useEffect, useState } from 'react';
+import gsap from 'gsap';
+import "./Preloader.css"
 
 
 const Preloader = ({ onFinish }) => {
 
-  const [currentLoadName, setCurrentLoadName] = React.useState(0);
-  const [shouldShow, setShouldShow] = React.useState(true);
 
-  React.useEffect(() => { // Check session has already loaded
-    
+  const [shouldShow, setShouldShow] = useState(true);
+
+  useEffect(() => {
+    // Check if session has already loaded
     const sessionLoaded = sessionStorage.getItem('sessionLoaded');
-    if (sessionLoaded) { // Skip loading screen if already loaded in this session
-      
+    
+    if (sessionLoaded) {
+      // Skip loading screen if already loaded session
       setShouldShow(false);
       if (onFinish) onFinish();
       return;
-      
     }
 
-    // Show loading screen for first load in this session
-    const interval = setInterval(() => {
-      setCurrentLoadName((prev) => (prev + 1) % loadingNames.length);
-    }, 500);
+    const tl = gsap.timeline({ // GSAP timeline animation
+      delay: 0.25,
+      onComplete: () => {
+        // Mark session as loaded
+        sessionStorage.setItem('sessionLoaded', 'true');
+        if (onFinish) onFinish();
+      },
+    });
 
-    const timer = setTimeout(() => {
-      // Mark the site has been loaded in this session
-      sessionStorage.setItem('sessionLoaded', 'true');
-      if (onFinish) onFinish();
-    }, 3000);
+    
+    tl.to(".progress-bar", { // Animate progress bar
+      scaleX: 1,
+      duration: 3,
+      ease: "power3.inOut",
+    })
+      .set(".progress-bar", { transformOrigin: "right" })
+      .to(".progress-bar", {
+        scaleX: 0,
+        duration: 2,
+        ease: "power3.in",
+      });
+
+
+    tl.to(".preloader", { // Hide preloader, fade up
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+      duration: 1.75,
+      ease: "power4.inOut",
+    });
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(timer);
+      tl.kill();
     };
   }, [onFinish]);
 
-  // Don't render anything if we should skip the loading screen
+  // Don't render anything if we should skip the loading screen!!!
   if (!shouldShow) {
     return null;
   }
 
   return (
-    <div className="loading-screen">
-      {loadingNames[currentLoadName]}
+    <div className="preloader">
+      <div className="progress-bar"></div>
     </div>
   );
 
+  
 };
 
-export default Preloader;
+
+export default Preloader

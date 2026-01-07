@@ -5,7 +5,9 @@ import { gsap } from "gsap";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+
 export const useScrollSmoother = (wrapperRef, PreloaderDone) => {
+  
   useEffect(() => {
     if (!PreloaderDone || !wrapperRef.current) return;
 
@@ -24,9 +26,8 @@ export const useScrollSmoother = (wrapperRef, PreloaderDone) => {
 
     return () => {
       clearTimeout(timer);
-      if (smoother) {
-        smoother.kill();
-      }
+      if (smoother) smoother.kill();
     };
-  }, [wrapperRef, PreloaderDone]);
+  }, [PreloaderDone, wrapperRef]);
+  
 };
