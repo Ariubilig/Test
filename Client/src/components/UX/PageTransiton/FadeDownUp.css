@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   /* Fallback background when no transition image is provided */
-  background-color: #000;
+  background-color: hsl(0, 0%, 15%);
 }
 .page-transition-content {
   width: 100%;
