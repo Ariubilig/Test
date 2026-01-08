@@ -1,33 +1,40 @@
-import { useEffect } from 'react';
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from "gsap";
+"use client";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 
 export const useScrollSmoother = (wrapperRef, PreloaderDone) => {
-  
+
   useEffect(() => {
     if (!PreloaderDone || !wrapperRef.current) return;
+    if (typeof window === "undefined") return;
 
-    let smoother = null;
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    ScrollSmoother.get()?.kill(); // // Kill previous instance
+    if (ScrollTrigger.isTouch === 1) return; // Disable on touch devices
+
+    const content = wrapperRef.current.querySelector("#smooth-content");
+    if (!content) return;
+
+    const smoother = ScrollSmoother.create({
+      wrapper: wrapperRef.current,
+      content,
+      smooth: 1.5,
+      effects: true,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+    });
+
+    ScrollTrigger.normalizeScroll({ allowNestedScroll: true });
+    ScrollTrigger.refresh(); // GSAP doesn't always refresh properly when DOM changes
     
-    const timer = setTimeout(() => {
-      smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1.5,
-        effects: true,
-        normalizeScroll: true,
-        ignoreMobileResize: true
-      });
-    }, 100);
-
     return () => {
-      clearTimeout(timer);
-      if (smoother) smoother.kill();
+      smoother.kill();
     };
-  }, [PreloaderDone, wrapperRef]);
-  
+  }, [wrapperRef, PreloaderDone]);
+
 };

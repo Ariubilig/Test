@@ -36,13 +36,14 @@ function App() {
       {!preloaderDone ? (
         <Preloader onFinish={() => setPreloaderAnimDone(true)} />
       ) : (
+        <>
 
-        <FadeDownUp>
 
-          <Navbar />
+        <Navbar />
 
-          <div id="smooth-wrapper" ref={smoothWrapperRef}>
-            <div id="smooth-content">
+        <div id="smooth-wrapper" ref={smoothWrapperRef}>
+          <div id="smooth-content">
+            <FadeDownUp>
 
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -53,10 +54,12 @@ function App() {
 
               <Footer />
 
-            </div>
+            </FadeDownUp>
           </div>
-        </FadeDownUp>
+        </div>
 
+
+        </>
       )}
     </>
   );
