@@ -80,7 +80,7 @@
         margin-right: 10px;
         min-height: auto;
         max-height: none;
-        gap: 30px;
+        gap: 10px;
     }
 
     .first-left h1 {
@@ -91,7 +91,7 @@
     }
 
     .first-right h1 {
-        font-size: 128px;
+        font-size: 120px;
         letter-spacing: -3px;
     }
 
