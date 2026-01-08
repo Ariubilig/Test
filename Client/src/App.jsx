@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound/NotFound.jsx';
 
 import Preloader from './components/UX/Preloader/Preloader';
 import FadeDownUp from './components/UX/PageTransiton/FadeDownUp.jsx';
-import { useScrollSmoother } from './components/hooks/useScrollSmootherLoad.jsx';
+import { useScrollSmootherLoad } from "./components/hooks/useScrollSmootherLoad.jsx";
 import { useFontsReady } from "./components/hooks/useFontsReady.js";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   const [preloaderDone, setPreloaderDone] = useState(false);
   const smoothWrapperRef = useRef(null);
   const fontsReady = useFontsReady();
-  useScrollSmoother(smoothWrapperRef, preloaderDone);
+  useScrollSmootherLoad(smoothWrapperRef, preloaderDone);
   /////////////////////////////////////////////////////////////////////////
 
   useEffect(() => { // both animation, fonts done hide preloader
