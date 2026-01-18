@@ -13,8 +13,8 @@ import FadeDownUp from './components/UX/PageTransiton/FadeDownUp.jsx';
 import { useScrollSmootherLoad } from "./components/hooks/useScrollSmootherLoad.jsx";
 import { useFontsReady } from "./components/hooks/useFontsReady.js";
 
-function App() {
 
+function App() {
 
 /////////////////////////////////////////////////////////////////////////
   const [preloaderAnimDone, setPreloaderAnimDone] = useState(false);
@@ -49,6 +49,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/Music" element={<Music />} />
                 <Route path="/Merch" element={<Merch />} />
+                
                 <Route path="*" element={<NotFound />} />
               </Routes>
 
